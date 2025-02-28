@@ -47,12 +47,19 @@ document.getElementById("form").addEventListener("submit", function (event) {
   if (firstName === "" || lastName === "" || email === "" || number === "") {
     alert("Pleace Fill The Form");
     isValid = false;
+  } else if (!validateEmail(email)) {
+    alert("Please enter a valid email address.");
+    isValid = false;
   }
   if (isValid) {
     alert(`Form submitted successfully!
-      Name: ${firstName+" "+ lastName}
+      Name: ${firstName + " " + lastName}
       Email: ${email}
       Number: ${number}`);
     document.getElementById("form").reset();
   }
 });
+function validateEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
