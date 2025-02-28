@@ -1,8 +1,5 @@
 let currentIndex = 0;
 const totalItems = document.querySelectorAll(".carousel-item").length;
-const totalinnterItems = document.querySelectorAll(
-  ".carousel-inner-item"
-).length;
 
 function showSlide(index) {
   const carouselInner = document.querySelector(".carousel-inner");
