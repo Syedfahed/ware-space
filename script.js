@@ -13,11 +13,11 @@ function showSlide(index) {
   } else {
     currentIndex = index;
   }
-  
+
   const offset = -currentIndex * 100;
   carouselInner.style.transform = `translateX(${offset}%)`;
   const innerCarousel = document.querySelector(`.carousel-inner-item${index}`);
-  innerCarousel.classList.toggle('active');
+  innerCarousel.classList.toggle("active");
 }
 
 function nextSlide() {
@@ -37,30 +37,22 @@ const handleMenu = () => {
   menubar.classList.toggle("d-none");
 };
 // get form data and validate
-document.getElementById('form').addEventListener('submit', function (event) {
-    event.preventDefault();
+document.getElementById("form").addEventListener("submit", function (event) {
+  event.preventDefault();
   const firstName = document.getElementById("first_name").value.trim();
   const lastName = document.getElementById("last_name").value.trim();
   const email = document.getElementById("email").value.trim();
   const number = document.getElementById("number").value.trim();
   let isValid = true;
-  if (firstName === "") {
-    alert('Pleace Fill The Form');
-    isValid = false;
-  } else if (lastName === "") {
-    alert('Pleace Fill The Form');
-    isValid = false;
-  } else if (email === "") {
-    alert('Pleace Fill The Form');
-    isValid = false;
-  } else if (number === "") {
-    alert('Pleace Fill The Form');
+  if (firstName === "" || lastName === "" || email === "" || number === "") {
+    alert("Pleace Fill The Form");
     isValid = false;
   }
   if (isValid) {
-    alert('Form submitted successfully!');
-    document.getElementById('form').reset();
+    alert(`Form submitted successfully!
+      Name: ${firstName+" "+ lastName}
+      Email: ${email}
+      Number: ${number}`);
+    document.getElementById("form").reset();
   }
 });
-
-  
